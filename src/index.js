@@ -1,18 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { persistor, store } from './redux/store';
 import { App } from 'components/App';
 import './index.css';
 import { Provider } from 'react-redux';
-import { store } from './redux/store';
-import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
-import { persistor } from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import { Notify } from 'notiflix';
+
+Notify.init({
+  position: 'right-bottom',
+});
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="/Expense-Tracker">
+        <BrowserRouter basename="/expense-trackerv5">
           <App />
         </BrowserRouter>
       </PersistGate>

@@ -1,10 +1,16 @@
-import { NavLink } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
+import css from './Navigation.module.css';
+import { TransactionsHistoryNav } from '../TransactionsHistoryNav/TransactionsHistoryNav';
 
-export const Navigation = () => {
+
+export const Navigation = ({className, activeClass}) => {
+  const { isLoggedIn } = useAuth();
+
   return (
-    <nav>
-      <NavLink to="/register">Register</NavLink>
-      <NavLink to="/login">Log In</NavLink>
+    <nav className={css.navbar}>
+      {isLoggedIn && (
+        <TransactionsHistoryNav className={className} activeClass={activeClass} />
+      )}
     </nav>
   );
 };

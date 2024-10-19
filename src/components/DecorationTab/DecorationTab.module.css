@@ -1,0 +1,90 @@
+.container {
+  width: 303px;
+  height: 121px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #FAFAFA;
+  top: 350px;
+  left: -50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+
+  position: absolute;
+  /*animation: bounceRandom 30s linear infinite;*/
+}
+
+.arrow {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  background: var(--mint-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+@keyframes bounceRandom {
+  0% {
+    transform: translate(0, 0); /* Top-left corner */
+  }
+  10% {
+    transform: translate(200px, 100px); /* Move to near the right */
+  }
+  20% {
+    transform: translate(300px, 300px); /* Move to near the bottom-right */
+  }
+  30% {
+    transform: translate(400px, 400px); /* Move to near the bottom-left */
+  }
+  40% {
+    transform: translate(50px, 200px); /* Move to near the middle-left */
+  }
+  50% {
+    transform: translate(300px, 50px); /* Move to near the top-right */
+  }
+  60% {
+    transform: translate(200px, 350px); /* Move to near the bottom-right */
+  }
+  70% {
+    transform: translate(150px, 400px); /* Move to near the bottom-left */
+  }
+  80% {
+    transform: translate(100px, 100px); /* Move to near the top-left */
+  }
+  90% {
+    transform: translate(250px, 200px); /* Move to near the middle-right */
+  }
+  100% {
+    transform: translate(0, 0); /* Return to top-left */
+  }
+
+}
+
+
+/* Styles for screens between 376px and 768px wide (e.g., tablets) */
+@media screen and (max-width: 768px) {
+  .container {
+    top: 315px;
+    width: 248px;
+    height: 81px;
+    flex-shrink: 0;
+    left: -16px;
+  }
+}
+
+
+/* Styles for screens 375px wide or less (e.g., small mobile devices) */
+@media screen and (max-width: 375px) {
+  .container {
+    top: 240px;
+    width: 248px;
+    height: 81px;
+    flex-shrink: 0;
+    left: -10px;
+  }
+}
