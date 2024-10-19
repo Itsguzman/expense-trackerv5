@@ -1,0 +1,158 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #141414;
+  color: #ffffff;
+  
+} */
+
+.loginContainer {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px 0;
+  width: 1200px;
+}
+
+.loginHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loginLogo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loginContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.loginImageSection {
+  position: relative;
+  width: 611px;
+  height: 568px;
+}
+
+.loginMainImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.loginBalanceCard {
+  position: absolute;
+  bottom: 120px;
+  left: -60px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 5px 70px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #141414;
+}
+
+.loginBalanceText {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.loginBalanceAmount {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.loginBalanceChange {
+  font-size: 14px;
+  font-weight: normal;
+  color: #28a745;
+  margin-top: 5px;
+}
+
+.loginTextSection {
+  width: 50%;
+  height: 100%;
+  padding-left: 3%;
+  margin-top: 0;
+}
+
+.loginFormSection {
+  width: 80%;
+  height: 100%;
+}
+
+.loginFormHeading {
+  font-size: 42px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.loginFormSubtext {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #cccccc;
+}
+
+.loginFormControl {
+  margin-bottom: 15px;
+}
+
+.loginFormControl input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: #2c2c2c;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.loginPasswordToggle {
+  position: absolute;
+  right: 20px;
+  top: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #666666;
+}
+
+.loginSigninButton {
+  margin-top: 130px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #00b074;
+  margin-bottom: 15px;
+}
+
+.loginSignupText {
+  font-size: 14px;
+  text-align: left;
+  color: #cccccc;
+}
+
+.loginSignupText .loginSignupLink {
+  color: #00b074;
+  text-decoration: none;
+}
+
+.loginSignupText .loginSignupLink:hover {
+  text-decoration: underline;
+}

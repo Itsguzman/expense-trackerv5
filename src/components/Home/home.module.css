@@ -1,0 +1,156 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #141414;
+  color: #ffffff;
+  
+} */
+
+.loginContainer {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px 0;
+  width: 1200px;
+  /* border: #00ff85 solid 1px; */
+}
+
+.loginHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loginLogo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loginContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.loginImageSection {
+  position: relative;
+  width: 611px;
+  height: 568px;
+}
+
+.loginMainImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.loginBalanceCard {
+  position: absolute;
+  bottom: 120px;
+  left: -60px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 5px 70px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #141414;
+}
+
+.loginBalanceText {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.loginBalanceAmount {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.loginBalanceChange {
+  font-size: 14px;
+  font-weight: normal;
+  color: #28a745;
+  margin-top: 5px;
+}
+
+.loginTextSection {
+  max-width: 500px;
+  padding: 0 20px;
+}
+
+.loginExpenseLog {
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.loginMainHeading {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.loginMainHeading span {
+  color: #00ff85;
+  text-decoration: underline;
+}
+
+.loginDescription {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.loginButtons {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.loginSignup,
+.loginSignin {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.loginSignup {
+  background-color: #00ff85;
+}
+
+.loginSignin {
+  background-color: transparent;
+  border: 2px solid #00ff85;
+}
+
+.loginUserStats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.loginUserImages img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+.loginUserText {
+  font-size: 14px;
+  color: #c4c4c4;
+}
