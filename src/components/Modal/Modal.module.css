@@ -1,4 +1,3 @@
-/* Overlay that covers the entire screen */
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -10,11 +9,10 @@
   z-index: 1000;
 
   border-radius: 30px;
-  border: 1px solid rgba(250, 250, 250, 0.10);
-  background: #0C0D0D99;
+  border: 1px solid rgba(250, 250, 250, 0.1);
+  background: #0c0d0d99;
 }
 
-/* Container for the modal content */
 .modalContainer {
   top: 170px;
   height: fit-content;
@@ -22,12 +20,12 @@
   position: relative;
 
   border-radius: 30px;
-  border: 1px solid rgba(250, 250, 250, 0.10);
+  border: 1px solid rgba(250, 250, 250, 0.1);
   background: #171719;
 }
 
 .modalContainer h2 {
-  color: #FAFAFA;
+  color: #fafafa;
   font-size: 28px;
   font-style: normal;
   font-weight: 400;
@@ -36,7 +34,6 @@
   text-transform: capitalize;
 }
 
-/* Close button at the top-right corner */
 .modalCloseButton {
   position: absolute;
   top: 20px;
@@ -45,10 +42,9 @@
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: #FAFAFA;
+  color: #fafafa;
 }
 
-/* Content inside the modal */
 .modalContent {
   margin-top: 20px;
   display: flex;
@@ -57,7 +53,6 @@
   width: 500px;
 }
 
-/* Styles for screens between 376px and 768px wide (e.g., tablets) */
 @media screen and (max-width: 768px) {
   .modalContent > form {
     padding: 40px;

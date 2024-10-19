@@ -1,12 +1,15 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { addTransaction, updateTransaction } from '../redux/transactions/operations';
+import {
+  addTransaction,
+  updateTransaction,
+} from '../redux/transactions/operations';
 import { useDispatch } from 'react-redux';
 
 const TransactionContext = createContext({
   formData: {
     type: 'incomes',
-  }, setFormData: () => {
   },
+  setFormData: () => {},
 });
 
 export const useTransactionForm = () => useContext(TransactionContext);
@@ -14,9 +17,11 @@ export const useTransactionForm = () => useContext(TransactionContext);
 export const TransactionProvider = ({ children, transaction }) => {
   const dispatch = useDispatch();
 
-  const [formData, setFormData] = useState(transaction || {
-    type: 'expenses',
-  });
+  const [formData, setFormData] = useState(
+    transaction || {
+      type: 'expenses',
+    }
+  );
 
   const [isFormValid, setIsFormValid] = useState(false);
   const [errors, setErrors] = useState({ category: '', password: '' });
@@ -25,12 +30,12 @@ export const TransactionProvider = ({ children, transaction }) => {
     let valid = true;
     const newErrors = { category: '', password: '' };
 
-    if (!formData.date ) {
+    if (!formData.date) {
       newErrors.date = 'Date is required.';
       valid = false;
     }
 
-    if (!formData.category ) {
+    if (!formData.category) {
       newErrors.category = 'Category is required.';
       valid = false;
     }
@@ -60,12 +65,9 @@ export const TransactionProvider = ({ children, transaction }) => {
       date,
       time,
     }));
-
   }, []);
 
-
   const handleSubmit = event => {
-    // Prevent the default form submission behavior
     event.preventDefault();
 
     if (!validateForm()) return;
@@ -92,7 +94,15 @@ export const TransactionProvider = ({ children, transaction }) => {
 
   return (
     <TransactionContext.Provider
-      value={{ validateForm, errors, isValid: isFormValid, formData, setFormData, handleChange, handleSubmit }}
+      value={{
+        validateForm,
+        errors,
+        isValid: isFormValid,
+        formData,
+        setFormData,
+        handleChange,
+        handleSubmit,
+      }}
     >
       {children}
     </TransactionContext.Provider>

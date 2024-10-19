@@ -8,7 +8,8 @@ import { getUser } from '../../redux/user/selectors';
 
 export const TransactionForm = ({ onSave }) => {
   const user = useSelector(getUser);
-  const { validateForm, errors, formData, handleChange, handleSubmit } = useTransactionForm();
+  const { validateForm, errors, formData, handleChange, handleSubmit } =
+    useTransactionForm();
 
   const datePicker = useRef(null);
   const timePicker = useRef(null);
@@ -31,7 +32,7 @@ export const TransactionForm = ({ onSave }) => {
         isModalOpen={isModalOpen}
         closeModal={closeModal}
         type={formData.type}
-        onItemClick={(category) => {
+        onItemClick={category => {
           setCategory(category);
           handleChange('category', category._id);
           closeModal();
@@ -39,7 +40,13 @@ export const TransactionForm = ({ onSave }) => {
         title={formData.type}
       />
 
-      <form className={css.container} onSubmit={(e) => { handleSubmit(e); (onSave && onSave());}}>
+      <form
+        className={css.container}
+        onSubmit={e => {
+          handleSubmit(e);
+          onSave && onSave();
+        }}
+      >
         <div className={css.typeContainer}>
           <div className={css.radioContainer}>
             <input
@@ -47,16 +54,13 @@ export const TransactionForm = ({ onSave }) => {
               id="expense"
               name="transaction"
               value="expenses"
-              onChange={(e) => {
-                setCategory(null); handleChange('type', e.target.value);
+              onChange={e => {
+                setCategory(null);
+                handleChange('type', e.target.value);
               }}
               defaultChecked
             />
-            <label
-              htmlFor="expense"
-            >
-              Expense
-            </label>
+            <label htmlFor="expense">Expense</label>
           </div>
           <div className={css.radioContainer}>
             <input
@@ -64,25 +68,19 @@ export const TransactionForm = ({ onSave }) => {
               id="income"
               name="transaction"
               value="incomes"
-              onChange={(e) => {
+              onChange={e => {
                 setCategory(null);
-                handleChange('type', e.target.value)
+                handleChange('type', e.target.value);
               }}
               required
             />
-            <label
-              htmlFor="income"
-            >
-              Income
-            </label>
+            <label htmlFor="income">Income</label>
           </div>
         </div>
 
         <div className={css.dateTimeContainer}>
           <div className={css.dateContainer}>
-            <label htmlFor="date">
-              Date
-            </label>
+            <label htmlFor="date">Date</label>
             <div style={{ position: 'relative' }}>
               <input
                 className={errors.date && 'invalid'}
@@ -100,9 +98,7 @@ export const TransactionForm = ({ onSave }) => {
             </div>
           </div>
           <div className={css.dateContainer}>
-            <label htmlFor="time">
-              Time
-            </label>
+            <label htmlFor="time">Time</label>
             <div className={css.timeContainer} style={{ position: 'relative' }}>
               <input
                 ref={timePicker}
@@ -111,7 +107,7 @@ export const TransactionForm = ({ onSave }) => {
                 onClick={e => e.currentTarget.showPicker()}
                 onChange={e => handleChange('time', e.target.value)}
               />
-              <svg  onClick={() => timePicker.current?.click()}>
+              <svg onClick={() => timePicker.current?.click()}>
                 <use href={`${icon}#clock-icon`} />
               </svg>
             </div>
@@ -119,11 +115,7 @@ export const TransactionForm = ({ onSave }) => {
         </div>
 
         <div className={css.fieldContainer}>
-          <label
-            htmlFor="category"
-          >
-            Category
-          </label>
+          <label htmlFor="category">Category</label>
           <input
             name="category"
             readOnly
@@ -133,55 +125,45 @@ export const TransactionForm = ({ onSave }) => {
             value={formData.category ? category?.categoryName || '' : ''}
             className={errors.category && 'invalid'}
           />
-          {errors.category && <span className={css.error}>{errors.category}</span>}
+          {errors.category && (
+            <span className={css.error}>{errors.category}</span>
+          )}
         </div>
 
         <div className={css.fieldContainer}>
-          <label
-            htmlFor="sum"
-          >
-            Sum
-          </label>
+          <label htmlFor="sum">Sum</label>
           <div className={css.sumContainer}>
             <input
               name="sum"
               type="number"
               placeholder="Enter the sum"
               value={formData.sum || ''}
-              onChange={(e) => handleChange('sum', e.target.value)}
+              onChange={e => handleChange('sum', e.target.value)}
               className={errors.sum && 'invalid'}
             />
-            <span className={css.currency}>
-              {user.currency}
-            </span>
+            <span className={css.currency}>{user.currency}</span>
             {errors.category && <span className={css.error}>{errors.sum}</span>}
           </div>
         </div>
 
         <div className={css.fieldContainer}>
-          <label
-            htmlFor="comment"
-          >
-            Comment
-          </label>
+          <label htmlFor="comment">Comment</label>
           <textarea
             name="comment"
             className={errors.comment && 'invalid'}
             style={{ height: '97px', resize: 'none' }}
             placeholder="Enter the text"
             value={formData.comment || ''}
-            onChange={(e) => handleChange('comment', e.target.value)}
+            onChange={e => handleChange('comment', e.target.value)}
           />
-          {errors.comment && <span className={css.error}>{errors.comment}</span>}
+          {errors.comment && (
+            <span className={css.error}>{errors.comment}</span>
+          )}
         </div>
 
-        <button
-          type="submit"
-          className="primary-button"
-        >
+        <button type="submit" className="primary-button">
           {formData._id ? 'Save' : 'Add'}
         </button>
-
       </form>
     </>
   );

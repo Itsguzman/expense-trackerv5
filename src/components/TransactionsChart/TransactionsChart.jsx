@@ -8,14 +8,13 @@ import { getCategories } from '../../redux/categories/selectors';
 Chart.register(ArcElement, Tooltip, Legend);
 
 export const TransactionsChart = ({ expenses }) => {
-  const categories = useSelector(getCategories).expenses; // ['Hobby', 'Products', 'Cinema', 'Health'];
+  const categories = useSelector(getCategories).expenses;
 
   const calculateExpensePercentage = () => {
     if (expenses.length === 0) return {};
     const categoryTotals = {};
     let totalExpenses = 0;
 
-    // Sum up the total expenses and total by category
     expenses.forEach(expense => {
       const { category, sum } = expense;
       totalExpenses += sum;
@@ -27,10 +26,10 @@ export const TransactionsChart = ({ expenses }) => {
       }
     });
 
-    // Calculate the percentage for each category
     const categoryPercentages = {};
     for (const category in categoryTotals) {
-      categoryPercentages[category] = (categoryTotals[category] / totalExpenses) * 100;
+      categoryPercentages[category] =
+        (categoryTotals[category] / totalExpenses) * 100;
     }
 
     return categoryPercentages;
@@ -66,8 +65,7 @@ export const TransactionsChart = ({ expenses }) => {
     datasets: [
       {
         data: categories.map(c => expensePercentage[c.categoryName]),
-        backgroundColor: categories
-          .map((c, i) => getCategoryColor(i)),
+        backgroundColor: categories.map((c, i) => getCategoryColor(i)),
         borderWidth: 0,
         borderRadius: 10,
         spacing: -60,
@@ -79,10 +77,10 @@ export const TransactionsChart = ({ expenses }) => {
     responsive: true,
     rotation: -82,
     circumference: 170,
-    cutout: '70%', // Cut out the middle of the chart
+    cutout: '70%',
     plugins: {
       legend: {
-        display: false, // Hide the default legend
+        display: false,
       },
     },
   };
@@ -93,28 +91,31 @@ export const TransactionsChart = ({ expenses }) => {
       <div className={css.data}>
         <div className={css.chart}>
           <Doughnut data={data} options={options} />
-          <div className={css.percentage}>
-            100%
-          </div>
+          <div className={css.percentage}>100%</div>
         </div>
 
         <div className={css.categories}>
           <ul>
             {categories.map((cat, index) => (
-                <li key={index}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{
+              <li key={index}>
+                <div
+                  style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+                >
+                  <div
+                    style={{
                       width: '12px',
                       height: '12px',
                       background: `${getCategoryColor(index)}`,
                       borderRadius: 9999,
-                    }} />
-                    {cat.categoryName}
-                  </div>
-                  <span>{(expensePercentage[cat.categoryName] || 0).toFixed(0)}%</span></li>
-              ),
-            )}
-
+                    }}
+                  />
+                  {cat.categoryName}
+                </div>
+                <span>
+                  {(expensePercentage[cat.categoryName] || 0).toFixed(0)}%
+                </span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

@@ -15,8 +15,12 @@ import * as user from '../redux/user/selectors';
 const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
-const MainTransactionsPage = lazy(() => import('../pages/MainTransactionsPage/MainTransactionsPage'));
-const TransactionsHistoryPage = lazy(() => import('../pages/TransactionsHistoryPage/TransactionsHistoryPage'));
+const MainTransactionsPage = lazy(() =>
+  import('../pages/MainTransactionsPage/MainTransactionsPage')
+);
+const TransactionsHistoryPage = lazy(() =>
+  import('../pages/TransactionsHistoryPage/TransactionsHistoryPage')
+);
 
 export function App() {
   const dispatch = useDispatch();
@@ -26,7 +30,8 @@ export function App() {
   const isCategoriesLoading = useSelector(categories.getIsLoading);
   const isUserLoading = useSelector(user.getIsLoading);
 
-  const isLoading = isUserLoading ||
+  const isLoading =
+    isUserLoading ||
     isTransactionsLoading ||
     isCategoriesLoading ||
     isRefreshing;
@@ -45,24 +50,20 @@ export function App() {
     checkAuthStatus();
   }, [dispatch, token, isLoggedIn, sid]);
 
-
-   /*if (isRefreshing) {
-     return(
-       <>
-         <Loader />
-       </>
-     )
-   }*/
-
   return (
     <>
-      { isLoading && <Loader /> }
+      {isLoading && <Loader />}
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<RestrictedRoute
-            component={<WelcomePage />}
-            redirectTo="/transactions"
-          />} />
+          <Route
+            index
+            element={
+              <RestrictedRoute
+                component={<WelcomePage />}
+                redirectTo="/transactions"
+              />
+            }
+          />
           <Route
             path="/signup"
             element={
@@ -75,7 +76,7 @@ export function App() {
               <RestrictedRoute redirectTo="/" component={<LoginPage />} />
             }
           />
-          {/* Protected routes (accessible only when logged in) */}
+
           <Route
             path="/transactions"
             element={
@@ -98,5 +99,4 @@ export function App() {
       </Routes>
     </>
   );
-
 }

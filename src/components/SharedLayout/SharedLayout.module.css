@@ -23,11 +23,7 @@
   justify-content: center;
 }
 
-/* Styles for screens between 376px and 768px wide (e.g., tablets) */
 @media screen and (max-width: 768px) {
-  /*.container {
-    padding: 32px;
-  }*/
   .mainContainer {
     flex-direction: column;
     margin-top: 96px;
@@ -42,8 +38,6 @@
   }
 }
 
-
-/* Styles for screens 375px wide or less (e.g., small mobile devices) */
 @media screen and (max-width: 375px) {
   .container {
     padding: 20px;
@@ -60,5 +54,4 @@
   .imageWrapper {
     order: 2;
   }
-
 }

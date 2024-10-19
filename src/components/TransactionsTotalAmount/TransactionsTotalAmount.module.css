@@ -12,14 +12,12 @@
   min-width: 200px;
   width: 100%;
   height: 121px;
-/*  position: relative;*/
   background: #171719;
   border-radius: 30px;
   align-content: center;
   display: flex;
   align-items: center;
 }
-
 
 .arrow {
   width: 43px;
@@ -47,9 +45,6 @@
 }
 
 .dataContainer {
-/*  left: 88px;
-  top: 32px;
-  position: absolute;*/
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -58,31 +53,30 @@
 }
 
 .amount {
-  color: #FAFAFA;
+  color: #fafafa;
   font-size: 24px;
   font-weight: 700;
   word-wrap: break-word;
 }
 
 .description {
-  color: rgba(249.69, 249.69, 249.69, 0.50);
+  color: rgba(249.69, 249.69, 249.69, 0.5);
   font-size: 16px;
   font-weight: 400;
   word-wrap: break-word;
 }
 
-/* Styles for screens between 376px and 768px wide (e.g., tablets) */
 @media screen and (max-width: 768px) {
-  .totalContainer{
+  .totalContainer {
     max-width: 340px;
   }
 }
 
 @media screen and (max-width: 376px) {
-  .container{
+  .container {
     flex-direction: column;
   }
-  .totalContainer{
+  .totalContainer {
     max-width: 335px;
     width: 335px;
     height: 81px;

@@ -4,7 +4,6 @@ import { UserBarBtn } from '../UserBarBtn/UserBarBtn';
 import { TransactionsHistoryNav } from '../TransactionsHistoryNav/TransactionsHistoryNav';
 
 export const BurgerMenu = ({ isOpen, onOpen, onClose }) => {
-  // Function to handle keydown event
   const handleKeyDown = e => {
     if (e.key === 'Escape') {
       onClose();
@@ -30,13 +29,18 @@ export const BurgerMenu = ({ isOpen, onOpen, onClose }) => {
       {isOpen && (
         <div className={css['modal-overlay']} onClick={handleBackdropClick}>
           <div className={css['modal-content']}>
-            <button className={css['close-btn']} onClick={onClose}>X</button>
+            <button className={css['close-btn']} onClick={onClose}>
+              X
+            </button>
             <div className={css.menu}>
               <UserBarBtn />
             </div>
 
-            <TransactionsHistoryNav activeClass={css.active} className={css.nav} onClick={onClose} />
-
+            <TransactionsHistoryNav
+              activeClass={css.active}
+              className={css.nav}
+              onClick={onClose}
+            />
           </div>
         </div>
       )}

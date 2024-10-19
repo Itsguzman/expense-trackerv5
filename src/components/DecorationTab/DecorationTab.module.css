@@ -3,16 +3,13 @@
   height: 121px;
   flex-shrink: 0;
   border-radius: 20px;
-  background: #FAFAFA;
+  background: #fafafa;
   top: 350px;
   left: -50px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
-
   position: absolute;
-  /*animation: bounceRandom 30s linear infinite;*/
 }
 
 .arrow {
@@ -26,47 +23,42 @@
   justify-content: center;
 }
 
-
-
 @keyframes bounceRandom {
   0% {
-    transform: translate(0, 0); /* Top-left corner */
+    transform: translate(0, 0);
   }
   10% {
-    transform: translate(200px, 100px); /* Move to near the right */
+    transform: translate(200px, 100px);
   }
   20% {
-    transform: translate(300px, 300px); /* Move to near the bottom-right */
+    transform: translate(300px, 300px);
   }
   30% {
-    transform: translate(400px, 400px); /* Move to near the bottom-left */
+    transform: translate(400px, 400px);
   }
   40% {
-    transform: translate(50px, 200px); /* Move to near the middle-left */
+    transform: translate(50px, 200px);
   }
   50% {
-    transform: translate(300px, 50px); /* Move to near the top-right */
+    transform: translate(300px, 50px);
   }
   60% {
-    transform: translate(200px, 350px); /* Move to near the bottom-right */
+    transform: translate(200px, 350px);
   }
   70% {
-    transform: translate(150px, 400px); /* Move to near the bottom-left */
+    transform: translate(150px, 400px);
   }
   80% {
-    transform: translate(100px, 100px); /* Move to near the top-left */
+    transform: translate(100px, 100px);
   }
   90% {
-    transform: translate(250px, 200px); /* Move to near the middle-right */
+    transform: translate(250px, 200px);
   }
   100% {
-    transform: translate(0, 0); /* Return to top-left */
+    transform: translate(0, 0);
   }
-
 }
 
-
-/* Styles for screens between 376px and 768px wide (e.g., tablets) */
 @media screen and (max-width: 768px) {
   .container {
     top: 315px;
@@ -77,8 +69,6 @@
   }
 }
 
-
-/* Styles for screens 375px wide or less (e.g., small mobile devices) */
 @media screen and (max-width: 375px) {
   .container {
     top: 240px;

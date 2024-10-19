@@ -6,7 +6,10 @@ import css from './MainTransactionsPage.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCategories } from '../../redux/categories/operations';
 import { TransactionProvider } from '../../context/TransactionProvider';
-import { fetchExpenses, fetchIncomes } from '../../redux/transactions/operations';
+import {
+  fetchExpenses,
+  fetchIncomes,
+} from '../../redux/transactions/operations';
 import { getTransactions } from '../../redux/transactions/selectors';
 
 const MainTransactionsPage = () => {
@@ -19,10 +22,12 @@ const MainTransactionsPage = () => {
   const currentMonth = currentDate.getMonth();
   const currentYear = currentDate.getFullYear();
 
-  const isCurrentMonth = (date) => {
+  const isCurrentMonth = date => {
     const itemDate = new Date(date);
-    return itemDate.getMonth() === currentMonth &&
-      itemDate.getFullYear() === currentYear;
+    return (
+      itemDate.getMonth() === currentMonth &&
+      itemDate.getFullYear() === currentYear
+    );
   };
 
   useEffect(() => {
@@ -32,23 +37,22 @@ const MainTransactionsPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const currentMonthExpenses = expenses
-    .filter(e => isCurrentMonth(e.date));
-  const currentMonthIncomes = incomes
-    .filter(e => isCurrentMonth(e.date));
+  const currentMonthExpenses = expenses.filter(e => isCurrentMonth(e.date));
+  const currentMonthIncomes = incomes.filter(e => isCurrentMonth(e.date));
 
   return (
     <div className={css.container}>
       <div className={css.headerContainer}>
-        <h2>
-          Expense Log
-        </h2>
+        <h2>Expense Log</h2>
         <p>
-          Capture and organize every penny spent with ease! A clear view of
-          your financial habits at your fingertips.
+          Capture and organize every penny spent with ease! A clear view of your
+          financial habits at your fingertips.
         </p>
         <div style={{ marginTop: '40px' }}>
-          <TransactionsTotalAmount expenses={currentMonthExpenses} incomes={currentMonthIncomes} />
+          <TransactionsTotalAmount
+            expenses={currentMonthExpenses}
+            incomes={currentMonthIncomes}
+          />
         </div>
       </div>
 
@@ -58,11 +62,9 @@ const MainTransactionsPage = () => {
         </TransactionProvider>
       </div>
 
-
       <div className={css.chartContainer}>
         <TransactionsChart expenses={currentMonthExpenses} />
       </div>
-
     </div>
   );
 };

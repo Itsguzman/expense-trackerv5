@@ -14,7 +14,6 @@ export const TransactionList = ({ transactions }) => {
   const { value: query, date } = useSelector(getFilter);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // const { setFormData } = useTransactionForm();
   const { setFormData: setTransaction } = useTransactionForm();
 
   const fields = ['category', 'comment', 'date', 'time', 'sum'];
@@ -24,16 +23,23 @@ export const TransactionList = ({ transactions }) => {
 
   const filterTransactions = data => {
     return data.filter(obj => {
-      return fields.some(prop => {
-        if (typeof obj[prop] === 'object' && prop === 'category') {
-          return String(obj[prop].categoryName).toLowerCase().includes(String(query).toLowerCase());
-        }
+      return (
+        fields.some(prop => {
+          if (typeof obj[prop] === 'object' && prop === 'category') {
+            return String(obj[prop].categoryName)
+              .toLowerCase()
+              .includes(String(query).toLowerCase());
+          }
 
-        if (obj[prop] !== undefined) {
-          return String(obj[prop]).toLowerCase().includes(String(query).toLowerCase());
-        }
-        return false;
-      }) && (!date || (date && obj.date === date));
+          if (obj[prop] !== undefined) {
+            return String(obj[prop])
+              .toLowerCase()
+              .includes(String(query).toLowerCase());
+          }
+          return false;
+        }) &&
+        (!date || (date && obj.date === date))
+      );
     });
   };
 
@@ -44,9 +50,11 @@ export const TransactionList = ({ transactions }) => {
     openModal();
   };
 
-  const handleDelete = ({ _id, type }) => e => {
-    dispatch(deleteTransaction({ _id, type }));
-  };
+  const handleDelete =
+    ({ _id, type }) =>
+    e => {
+      dispatch(deleteTransaction({ _id, type }));
+    };
 
   return (
     <div className={css.container}>
@@ -59,7 +67,9 @@ export const TransactionList = ({ transactions }) => {
 
       <div className={`${css.row} ${css.tableHeader}`}>
         {fields.map((field, i) => (
-          <span key={i} className={css.cell}>{field}</span>
+          <span key={i} className={css.cell}>
+            {field}
+          </span>
         ))}
         <span className={css.cell}>Actions</span>
       </div>
@@ -67,28 +77,33 @@ export const TransactionList = ({ transactions }) => {
         {filteredData?.map((t, i) => (
           <li key={i} className={css.row}>
             {fields.map((field, i) => (
-              <span key={i} className={css.cell}>{field === 'category' ? t[field].categoryName : t[field]}</span>
+              <span key={i} className={css.cell}>
+                {field === 'category' ? t[field].categoryName : t[field]}
+              </span>
             ))}
             <span className={css.cell + ' ' + css.actionButtons}>
-                <button className={`primary-button ${css.btnEdit}`} onClick={handleEdit(t)}>
-                  <span className={css.buttonText}>Edit</span>
-                  <svg width={16} height={16}>
-                    <use href={`${icon}#edit`} />
-                  </svg>
-                </button>
-                <button className={`secondary-button ${css.btnDelete}`}
-                  onClick={handleDelete({ type: t.type, _id: t._id })}>
-                   <span className={css.buttonText}>Delete</span>
-                  <svg width={16} height={16} >
-                    <use href={`${icon}#trash`} />
-                  </svg>
-                </button>
-              </span>
+              <button
+                className={`primary-button ${css.btnEdit}`}
+                onClick={handleEdit(t)}
+              >
+                <span className={css.buttonText}>Edit</span>
+                <svg width={16} height={16}>
+                  <use href={`${icon}#edit`} />
+                </svg>
+              </button>
+              <button
+                className={`secondary-button ${css.btnDelete}`}
+                onClick={handleDelete({ type: t.type, _id: t._id })}
+              >
+                <span className={css.buttonText}>Delete</span>
+                <svg width={16} height={16}>
+                  <use href={`${icon}#trash`} />
+                </svg>
+              </button>
+            </span>
           </li>
         ))}
-
       </ul>
     </div>
-
   );
 };

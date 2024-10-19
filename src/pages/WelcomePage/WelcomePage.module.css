@@ -8,7 +8,7 @@
 }
 
 .container h1 {
-  color: rgba(250, 250, 250, 0.40);
+  color: rgba(250, 250, 250, 0.4);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -22,10 +22,9 @@
   max-width: 533px;
 }
 
-
 .manageFinance {
   max-width: 575px;
-  color: #FAFAFA;
+  color: #fafafa;
   font-size: 56px;
   font-style: normal;
   font-weight: 400;
@@ -34,7 +33,7 @@
 }
 
 .manageFinance span {
-  color: #0EF387;
+  color: #0ef387;
   font-size: 56px;
   font-style: normal;
   font-weight: 400;
@@ -44,7 +43,7 @@
 }
 
 .container p {
-  color: rgba(250, 250, 250, 0.40);
+  color: rgba(250, 250, 250, 0.4);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -52,12 +51,9 @@
   letter-spacing: -0.32px;
 }
 
-
-/* Styles for screens between 376px and 768px wide (e.g., tablets) */
 @media screen and (max-width: 768px) {
-
   .manageFinance {
-    color: #FAFAFA;
+    color: #fafafa;
     font-size: 56px;
     letter-spacing: -1.12px;
   }
@@ -92,20 +88,15 @@
     opacity: 0;
     display: none;
   }
-
 }
 
-
-
-/* Styles for screens 375px wide or less (e.g., small mobile devices) */
 @media screen and (max-width: 375px) {
-
   .container p {
     max-width: 335px;
   }
 
   .manageFinance {
-    color: #FAFAFA;
+    color: #fafafa;
     font-size: 32px;
     letter-spacing: -0.64px;
     max-width: 335px;
@@ -140,5 +131,4 @@
     opacity: 0;
     display: none;
   }
-
 }
